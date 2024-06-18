@@ -3,14 +3,16 @@ import RedisService from "../infrastructure/database/redisSetup.js";
 import { samehSmsAuth } from './samehAuthentication.js'
 
 export default class SmsServiceListAccess {
+  private redis: any
+
   constructor() {
     // this.redis = new RedisService()
   }
 
   async smsListAccess() {
-    // let samehAccessToken = await this.redis.get("samehAccessToken");
+    // let samehAccessToken: number = await this.redis.get("samehAccessToken");
 
-    let samehAccessToken;
+    let samehAccessToken
     if (!samehAccessToken) {
       const { accessToken } = await samehSmsAuth({ username: 'samehSmsProvider', password: 'sms12345678910' });
       samehAccessToken = accessToken;

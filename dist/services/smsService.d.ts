@@ -1,4 +1,5 @@
 export default class SmsServiceListAccess {
+    private redis;
     constructor();
     smsListAccess(): Promise<{
         receivedSmsList: any;
